@@ -49,8 +49,13 @@ def _merged(xs, ys, cmp=cmp_standard):
 
 
 def merge_sorted(xs, cmp=cmp_standard):
+    
+    
+    
+    
     '''
     Merge sort is the standard O(n log n) sorting algorithm.
+
     Recall that the merge sort pseudo code is:
 
         if xs has 1 element
@@ -66,6 +71,15 @@ def merge_sorted(xs, cmp=cmp_standard):
 
 
 def quick_sorted(xs, cmp=cmp_standard):
+    if len(xs) == 1: return xs
+    else:
+        #select pivot value p
+        #put all values less than p in a list
+        #put all the values greater than p ina list
+        #sort both lists recursively
+        #return the concaenation of less than, p, greater than
+
+    
     '''
     Quicksort is like mergesort,
     but it uses a different strategy to split the list.
@@ -89,6 +103,8 @@ def quick_sorted(xs, cmp=cmp_standard):
 
 
 def quick_sort(xs, cmp=cmp_standard):
+    
+    
     '''
     EXTRA CREDIT:
     The main advantage of quick_sort is that it can be implemented in-place,
