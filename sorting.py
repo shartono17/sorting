@@ -84,7 +84,7 @@ def merge_sorted(xs, cmp=cmp_standard):
         merge_sorted(left, cmp)
         merge_sorted(right, cmp)
 
-        return _merged(merge_sorted(left, cmp=cmp), merged_sorted(right, cmp=cmp), cmp = cmp)
+        return _merged(merge_sorted(left, cmp=cmp), merge_sorted(right, cmp=cmp), cmp = cmp)
     
     '''
     Merge sort is the standard O(n log n) sorting algorithm.
