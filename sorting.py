@@ -159,17 +159,18 @@ def quick_sort(xs, cmp=cmp_standard):
 
     pivot = xs[hi]
     i = lo
-    for j in range(lo, hi-1):
-        if xs[j] <= hi-1:
+    for j in range(lo, hi):
+        if xs[j] <= pivot:
+            i += 1
             prev = xs[i]
             xs[i] = xs[j]
             xs[j] = prev
-            i += 1
-    temp = xs[i] 
-    xs[i]= xs[j]
-    xs[j] = temp
 
-    return i
+    temp = xs[i+1] 
+    xs[i+1]= xs[hi]
+    xs[hi] = temp
+
+    return i+1
 
     
     '''
