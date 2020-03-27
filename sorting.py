@@ -52,7 +52,7 @@ def _merged(xs, ys, cmp=cmp_standard):
         if (cmp == cmp_standard and xs[i] < ys[j]) or (cmp == cmp_reverse and xs[i]> ys[j]):
             sorted_list.append(xs[i])
             i += 1
-        elif (cmp == cmp_standard and xs[i] >= ys[j]) or (cmp == cmp_reverse and xs[i] <= ys[i]):
+        elif (cmp == cmp_standard and xs[i] >= ys[j]) or (cmp == cmp_reverse and xs[i] <= ys[j]):
             sorted_list.append(ys[j])
             j += 1
 
