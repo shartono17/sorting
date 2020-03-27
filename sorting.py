@@ -152,7 +152,25 @@ def quick_sorted(xs, cmp=cmp_standard):
 
 
 def quick_sort(xs, cmp=cmp_standard):
-    
+    if len(xs) <= 1: return xs
+
+    lo = xs[0]
+    hi = xs[len(xs)-1]
+
+    pivot = xs[hi]
+    i = lo
+    for j in range(lo to hi-1):
+        if xs[j] <= hi:
+            prev = xs[i]
+            xs[i] = xs[j]
+            xs[j] = prev
+            i += 1
+    temp = xs[i] 
+    xs[i]= xs[j]
+    xs[j] = temp
+
+    return i
+
     
     '''
     EXTRA CREDIT:
