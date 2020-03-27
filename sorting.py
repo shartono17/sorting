@@ -41,6 +41,31 @@ def cmp_last_digit(a,b):
 
 
 def _merged(xs, ys, cmp=cmp_standard):
+    list1 = len(xs)
+    list2 = len(ys)
+
+    sorted_list = []
+    i, j = 0, 0
+
+    while i < list1 and j < list2:
+        if (cmp == cmp_standard and xs[i] < ys[j]) or (cmp == cmp_reverse and xs[i]> ys[j]):
+            sorted_list.append(xs[i])
+            i += 1
+        elif (cmp == cmp_standard and xs[i] >= ys[j]) or (cmp == cmp_reverse and xs[i] <= ys[i]):
+            sorted_list.append(ys[j])
+            j += 1
+
+        if i == list1 and j == list2:
+            return sorted_list
+        elif i = list1:
+            for x in range(j,list2):
+                sortedL.append(ys[x])
+            return sorted_list
+        elif j = list2:
+            for x in range(i, list1):
+                sorted_list.append(xs[x])
+            return sorted_list
+    
     '''
     Assumes that both xs and ys are sorted,
     and returns a new list containing the elements of both xs and ys.
@@ -49,13 +74,20 @@ def _merged(xs, ys, cmp=cmp_standard):
 
 
 def merge_sorted(xs, cmp=cmp_standard):
-    
-    
-    
+    if len(xs) <= 1:
+        return xs
+    else:
+        center = len(xs)//2
+        left = xs[:center]
+        right = xs[center:]
+
+        merge_sorted(left, cmp)
+        merge_sorted(right, cmp)
+
+        return _merged(merge_sorted(left, cmp=cmp), merged_sorted(right, cmp=cmp), cmp = cmp)
     
     '''
     Merge sort is the standard O(n log n) sorting algorithm.
-
     Recall that the merge sort pseudo code is:
 
         if xs has 1 element
@@ -71,13 +103,29 @@ def merge_sorted(xs, cmp=cmp_standard):
 
 
 def quick_sorted(xs, cmp=cmp_standard):
-    if len(xs) == 1: return xs
+    low = []
+    high = []
+    pivot = []
+
+    if len(xs) <= 1: return xs
     else:
-        #select pivot value p
-        #put all values less than p in a list
-        #put all the values greater than p ina list
-        #sort both lists recursively
-        #return the concaenation of less than, p, greater than
+        val = xs[0]
+        for x in xs:
+            if x > val:
+                high.append(x)
+            elif x< val:
+                low.append(x)
+            else: 
+                pivot.append(x)
+
+        less = quick_sorted(low, cmp = cmp)
+        more = quick_sorted(high, cmp = cmp)
+
+    if cmp == cmp_standard:
+        return less + pivot + more
+
+    if cmp == cmp_reverse:
+        return more + pivot + less
 
     
     '''
