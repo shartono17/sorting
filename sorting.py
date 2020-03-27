@@ -60,7 +60,7 @@ def _merged(xs, ys, cmp=cmp_standard):
         return sorted_list
     elif i == list1:
         for x in range(j,list2):
-            sortedL.append(ys[x])
+            sorted_list.append(ys[x])
         return sorted_list
     elif j == list2:
         for x in range(i, list1):
